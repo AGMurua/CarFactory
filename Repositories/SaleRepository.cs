@@ -3,12 +3,18 @@ using CarFactory.Repositories.Interfaces;
 
 namespace CarFactory.Repositories
 {
-    public class SaleRepositorySaleRepository : ISaleRepository
+    public class SaleRepository : ISaleRepository
     {
+        private readonly List<Sale> _sales;
+
+        public SaleRepository()
+        {
+            _sales = new List<Sale>(); 
+        }
+
         public void AddSale(Sale sale)
         {
-            throw new NotImplementedException();
+            _sales.Add(sale);
         }
     }
-}
 }

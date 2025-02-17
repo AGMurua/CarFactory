@@ -1,4 +1,4 @@
-﻿namespace CarFactory.Domain
+﻿namespace CarFactory.Helper.Types
 {
     public enum CarTypeEnum
     {
