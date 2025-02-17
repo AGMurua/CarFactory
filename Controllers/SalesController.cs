@@ -1,5 +1,6 @@
 ﻿using CarFactory.DTOs;
 using CarFactory.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,36 +18,21 @@ namespace CarFactory.Controllers
         [HttpPost("add")]
         public IActionResult AddSale([FromBody] AddSaleDto saleDto)
         {
-            var stopwatch = Stopwatch.StartNew();
-
             _saleService.InsertSale(saleDto);
-
-            stopwatch.Stop();
-            var test = stopwatch.ElapsedMilliseconds;
-            return Created();
+            return CreatedAtAction(nameof(AddSale), new { saleDto }, saleDto);
         }
 
         [HttpGet("total-sales-volume")]
         public IActionResult GetTotalSalesVolume()
         {
-            var stopwatch = Stopwatch.StartNew();
-
             var result = _saleService.GetTotalSalesVolume();
-
-            stopwatch.Stop();
-
-            return Ok(result);
+            return Ok(new { totalVolume = result });
         }
 
         [HttpGet("sales-by-center/{centerName}")]
         public IActionResult GetSalesByDistributionCenter(string centerName)
         {
-            var stopwatch = Stopwatch.StartNew();
-
             var result = _saleService.GetSalesByDistributionCenter(centerName);
-
-            stopwatch.Stop();
-
             return Ok(result);
         }
     }

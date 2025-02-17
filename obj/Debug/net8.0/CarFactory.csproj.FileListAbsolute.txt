@@ -28,7 +28,6 @@ D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets\msbuil
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CarFactory.props
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CarFactory.props
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.csproj.Up2Date
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.dll
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\refint\CarFactory.dll

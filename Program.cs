@@ -4,6 +4,7 @@ using CarFactory.Services;
 using CarFactory.Services.Interfaces;
 using CarFactory.Helper;
 using CarFactory.Helper.Mapping;
+using CarFactory.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,12 +26,17 @@ builder.Services.AddSingleton<ICarPriceProvider, CarPriceProvider>();
 
 var app = builder.Build();
 
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Custom Middleware
+app.UseMiddleware<RequestMetricMiddleware>();
 
 app.UseHttpsRedirection();
 
