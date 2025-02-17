@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "ContainingType": "CarFactory.Controllers.SalesController",
+    "Method": "AddSale",
+    "RelativePath": "add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saleDto",
+        "Type": "CarFactory.DTOs.SaleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarFactory.Controllers.SalesController",
+    "Method": "GetTotalSalesVolume",
+    "RelativePath": "total-sales-volume",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

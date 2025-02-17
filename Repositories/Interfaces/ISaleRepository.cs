@@ -5,5 +5,6 @@ namespace CarFactory.Repositories.Interfaces
     public interface ISaleRepository
     {
         void AddSale(Sale sale);
+        decimal GetTotalSalesVolume();
     }
 }

@@ -16,5 +16,10 @@ namespace CarFactory.Repositories
         {
             _sales.Add(sale);
         }
+
+        public decimal GetTotalSalesVolume()
+        {
+            return _sales.Sum(s => s.Price);
+        }
     }
 }

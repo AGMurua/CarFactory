@@ -18,6 +18,8 @@ namespace CarFactory.Services
             _carPriceProvider = carPriceProvider;
         }
 
+        public object GetTotalSalesVolume() => _saleRepository.GetTotalSalesVolume();
+
         public void InsertSale(SaleDto saleDto)
         {
             var price = _carPriceProvider.GetPrice(saleDto.CarType);
