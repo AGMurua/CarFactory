@@ -23,13 +23,11 @@ namespace CarFactory.Services
             _mapper = mapper;
         }
 
-        public decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter) =>
-                _saleRepository.GetSalePercentageByModel(carType, distributionCenter);
+        public IEnumerable<SaleDto> GetSalesByDistributionCenter(string centerName) 
+            => _mapper.Map<IEnumerable<SaleDto>>(_saleRepository.GetSalesByDistributionCenter(centerName));
 
-        public IEnumerable<SaleDto> GetSalesByDistributionCenter(string center) =>
-            _mapper.Map<IEnumerable<SaleDto>>(_saleRepository.GetSalesByDistributionCenter(center));
-
-        public IEnumerable<SaleDto> GetTotalSalesVolume() => _mapper.Map<IEnumerable<SaleDto>>(_saleRepository.GetTotalSalesVolume().OrderBy(x => x.DistributionCenterName));
+        public IEnumerable<SaleDto> GetTotalSalesVolume() 
+            => _mapper.Map<IEnumerable<SaleDto>>(_saleRepository.GetTotalSalesVolume().OrderBy(x => x.DistributionCenterName));
 
         public void InsertSale(AddSaleDto saleDto)
         {
@@ -39,6 +37,8 @@ namespace CarFactory.Services
 
             _saleRepository.AddSale(sale);
         }
+
+        public Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter() => _saleRepository.GetSalesPercentageByModelPerCenter();
 
     }
 }

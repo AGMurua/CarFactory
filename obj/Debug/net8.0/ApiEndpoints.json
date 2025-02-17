@@ -80,12 +80,12 @@
     "Parameters": [
       {
         "Name": "carType",
-        "Type": "System.String",
+        "Type": "",
         "IsRequired": true
       },
       {
         "Name": "center",
-        "Type": "System.String",
+        "Type": "",
         "IsRequired": true
       }
     ],

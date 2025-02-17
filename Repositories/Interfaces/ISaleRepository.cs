@@ -9,5 +9,7 @@ namespace CarFactory.Repositories.Interfaces
         decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter);
         IEnumerable<Sale> GetSalesByDistributionCenter(string centerName);
         IEnumerable<Sale> GetTotalSalesVolume();
+
+        Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter();
     }
 }

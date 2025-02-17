@@ -36,7 +36,7 @@
             <returns>Las ventas asociadas al centro de distribucion</returns>
             <response code="200">Ventas del centro de distribucion</response>
         </member>
-        <member name="M:SalesController.GetSalePercentageByModel(CarFactory.Helper.Types.CarTypeEnum,System.String)">
+        <member name="M:SalesController.GetSalePercentageByModel">
             <summary>
             Obtiene el porcentaje de ventas de un modelo por centro
             </summary>

@@ -114,16 +114,14 @@
           {
             "name": "carType",
             "in": "path",
-            "description": "El tipo de coche (CarTypeEnum)",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/CarTypeEnum"
+              "type": "string"
             }
           },
           {
             "name": "center",
             "in": "path",
-            "description": "El nombre del centro de distribucion",
             "required": true,
             "schema": {
               "type": "string"

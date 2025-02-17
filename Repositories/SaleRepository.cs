@@ -37,5 +37,28 @@ namespace CarFactory.Repositories
             var modelSales = GetSales().Where(s => s.CarType == carType && s.DistributionCenterName == distributionCenter).Sum(s => s.Price);
             return totalSales > 0 ? (modelSales / totalSales) * 100 : 0;
         }
+
+        public Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter()
+        {
+            var sales = GetSales();
+            if (!sales.Any())
+                return new Dictionary<string, Dictionary<CarTypeEnum, decimal>>();
+
+            return sales
+                .GroupBy(s => s.DistributionCenterName)
+                .ToDictionary(
+                    group => group.Key,
+                    group =>
+                    {
+                        var totalSalesInCenter = group.Count();
+                        return group
+                            .GroupBy(s => s.CarType)
+                            .ToDictionary(
+                                g => g.Key,
+                                g => (decimal)g.Count() / totalSalesInCenter * 100
+                            );
+                    }
+                );
+        }
     }
 }
