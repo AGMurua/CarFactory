@@ -27,11 +27,9 @@ builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<ISaleRepository, SaleRepository>();  
 builder.Services.AddScoped<ICarRepository, CarRepository>();  
+
 builder.Services.AddScoped<ISaleService, SaleService>();
 builder.Services.AddScoped<ICarTypeService, CarTypeService>();
-
-//Se agrega como singleton ya que no varia sus valores son estaticos
-builder.Services.AddSingleton<ICarPriceProvider, CarPriceProvider>(); 
 
 var app = builder.Build();
 

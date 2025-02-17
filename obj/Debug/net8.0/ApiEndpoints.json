@@ -51,7 +51,7 @@
   {
     "ContainingType": "SalesController",
     "Method": "GetSalesByDistributionCenter",
-    "RelativePath": "sales-by-center/{centerName}",
+    "RelativePath": "sales-by-center",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -59,7 +59,7 @@
       {
         "Name": "centerName",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

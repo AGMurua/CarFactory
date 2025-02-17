@@ -30,7 +30,7 @@ namespace CarFactory.Repositories
         {
             if (!_prices.TryGetValue(carType, out var carPrice))
             {
-                return null;
+                throw new KeyNotFoundException($"No se encontro el precio para el tipo de auto");
             }
             return carPrice;
         }

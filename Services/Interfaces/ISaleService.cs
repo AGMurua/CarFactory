@@ -6,8 +6,8 @@ namespace CarFactory.Services.Interfaces
     public interface ISaleService
     {
         Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter();
-        IEnumerable<SaleDto> GetSalesByDistributionCenter(string centerName);
-        IEnumerable<SaleDto> GetTotalSalesVolume();
+        Dictionary<string, decimal> GetSalesByDistributionCenter(string centerName = null);
+        decimal GetTotalSalesVolume();
         void InsertSale(AddSaleDto saleDto);
     }
 }

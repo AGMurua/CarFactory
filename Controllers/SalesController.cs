@@ -49,11 +49,11 @@ public class SalesController : ControllerBase
         return Ok(new { totalVolume = result });
     }
 
-    [HttpGet("sales-by-center/{centerName}")]
+    [HttpGet("sales-by-center")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [SwaggerOperation(Summary = "Obtiene las ventas de un centro de distribucion", Description = "Este endpoint devuelve todas las ventas de un centro de distribucion dado")]
+    [SwaggerOperation(Summary = "Obtiene el volumen para un centro de distribucion", Description = "Este endpoint devuelve todas las ventas de un centro de distribucion dado o todos si no se asigna valor a centerName")]
     //Necesitamos poder obtener las ventdas de un centro especifico
-    public IActionResult GetSalesByDistributionCenter(string centerName)
+    public IActionResult GetSalesByDistributionCenter([FromQuery] string centerName)
     {
         var result = _saleService.GetSalesByDistributionCenter(centerName);
         return Ok(result);

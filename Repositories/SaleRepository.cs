@@ -27,38 +27,43 @@ namespace CarFactory.Repositories
             _memoryCache.Set("Sales", sales);
         }
 
-        public IEnumerable<Sale> GetTotalSalesVolume() => GetSales();
+        public IEnumerable<Sale> GetAllSales() => GetSales();
 
-        public IEnumerable<Sale> GetSalesByDistributionCenter(string centerName) => GetSales().Where(s => s.DistributionCenterName == centerName);
-
-        public decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter)
+        public Dictionary<string, decimal> GetSalesByDistributionCenter(string centerName = null)
         {
-            var totalSales = GetSalesByDistributionCenter(distributionCenter).Sum(s => s.Price);
-            var modelSales = GetSales().Where(s => s.CarType == carType && s.DistributionCenterName == distributionCenter).Sum(s => s.Price);
-            return totalSales > 0 ? (modelSales / totalSales) * 100 : 0;
+            return GetSalesByCenter(GetSales(), centerName);
         }
 
         public Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter()
         {
             var sales = GetSales();
-            if (!sales.Any())
-                return new Dictionary<string, Dictionary<CarTypeEnum, decimal>>();
+            var totalCompanySales = sales.Count();
+
+            if (totalCompanySales == 0) return new Dictionary<string, Dictionary<CarTypeEnum, decimal>>();
 
             return sales
                 .GroupBy(s => s.DistributionCenterName)
                 .ToDictionary(
-                    group => group.Key,
-                    group =>
-                    {
-                        var totalSalesInCenter = group.Count();
-                        return group
-                            .GroupBy(s => s.CarType)
-                            .ToDictionary(
-                                g => g.Key,
-                                g => (decimal)g.Count() / totalSalesInCenter * 100
-                            );
-                    }
+                    centerGroup => centerGroup.Key,
+                    centerGroup => centerGroup
+                        .GroupBy(s => s.CarType)
+                        .ToDictionary(
+                            modelGroup => modelGroup.Key,
+                            modelGroup => (decimal)modelGroup.Count() / totalCompanySales * 100
+                        )
                 );
+        }
+
+        private Dictionary<string, decimal> GetSalesByCenter(IEnumerable<Sale> sales, string centerName = null)
+        {
+            if (!string.IsNullOrWhiteSpace(centerName))
+            {
+                sales = sales.Where(s => s.DistributionCenterName == centerName);
+            }
+
+            return sales
+                .GroupBy(s => s.DistributionCenterName)
+                .ToDictionary(g => g.Key, g => g.Sum(s => s.Price));
         }
     }
 }

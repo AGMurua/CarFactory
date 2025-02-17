@@ -6,9 +6,8 @@ namespace CarFactory.Repositories.Interfaces
     public interface ISaleRepository
     {
         void AddSale(Sale sale);
-        decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter);
-        IEnumerable<Sale> GetSalesByDistributionCenter(string centerName);
-        IEnumerable<Sale> GetTotalSalesVolume();
+        Dictionary<string, decimal> GetSalesByDistributionCenter(string centerName = null);
+        IEnumerable<Sale> GetAllSales();
 
         Dictionary<string, Dictionary<CarTypeEnum, decimal>> GetSalesPercentageByModelPerCenter();
     }
