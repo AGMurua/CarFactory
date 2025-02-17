@@ -9,7 +9,23 @@
     "Parameters": [
       {
         "Name": "saleDto",
-        "Type": "CarFactory.DTOs.SaleDto",
+        "Type": "CarFactory.DTOs.AddSaleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarFactory.Controllers.SalesController",
+    "Method": "GetSalesByDistributionCenter",
+    "RelativePath": "sales-by-center/{centerName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "centerName",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

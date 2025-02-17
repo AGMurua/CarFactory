@@ -15,7 +15,7 @@ namespace CarFactory.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddSale([FromBody] SaleDto saleDto)
+        public IActionResult AddSale([FromBody] AddSaleDto saleDto)
         {
             var stopwatch = Stopwatch.StartNew();
 
@@ -23,7 +23,7 @@ namespace CarFactory.Controllers
 
             stopwatch.Stop();
             var test = stopwatch.ElapsedMilliseconds;
-            return Ok();
+            return Created();
         }
 
         [HttpGet("total-sales-volume")]
@@ -38,5 +38,16 @@ namespace CarFactory.Controllers
             return Ok(result);
         }
 
+        [HttpGet("sales-by-center/{centerName}")]
+        public IActionResult GetSalesByDistributionCenter(string centerName)
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            var result = _saleService.GetSalesByDistributionCenter(centerName);
+
+            stopwatch.Stop();
+
+            return Ok(result);
+        }
     }
 }

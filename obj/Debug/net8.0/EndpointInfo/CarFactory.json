@@ -14,17 +14,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SaleDto"
+                "$ref": "#/components/schemas/AddSaleDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SaleDto"
+                "$ref": "#/components/schemas/AddSaleDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SaleDto"
+                "$ref": "#/components/schemas/AddSaleDto"
               }
             }
           }
@@ -47,21 +47,33 @@
           }
         }
       }
+    },
+    "/sales-by-center/{centerName}": {
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "parameters": [
+          {
+            "name": "centerName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "CarTypeEnum": {
-        "enum": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "SaleDto": {
+      "AddSaleDto": {
         "type": "object",
         "properties": {
           "carType": {
@@ -73,6 +85,16 @@
           }
         },
         "additionalProperties": false
+      },
+      "CarTypeEnum": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       }
     }
   }

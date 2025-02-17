@@ -4,7 +4,8 @@ namespace CarFactory.Services.Interfaces
 {
     public interface ISaleService
     {
+        IEnumerable<SaleDto> GetSalesByDistributionCenter(string centerName);
         object GetTotalSalesVolume();
-        void InsertSale(SaleDto saleDto);
+        void InsertSale(AddSaleDto saleDto);
     }
 }

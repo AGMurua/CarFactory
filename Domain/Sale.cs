@@ -1,4 +1,5 @@
-﻿using CarFactory.Helper.Types;
+﻿using CarFactory.DTOs;
+using CarFactory.Helper.Types;
 
 namespace CarFactory.Domain
 {
@@ -10,5 +11,13 @@ namespace CarFactory.Domain
         public decimal Price { get; set; }
         public DateTime Date { get; set; }
 
+
+        public Sale(CarTypeEnum type, string distributionCenterName, decimal price)
+        {
+            CarType = type;
+            DistributionCenterName = distributionCenterName;
+            Price = price;
+            Date = DateTime.Now;
+        }
     }
 }

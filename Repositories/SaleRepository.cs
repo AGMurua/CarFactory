@@ -1,25 +1,41 @@
 ﻿using CarFactory.Domain;
 using CarFactory.Repositories.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace CarFactory.Repositories
 {
     public class SaleRepository : ISaleRepository
     {
-        private readonly List<Sale> _sales;
+        private readonly IMemoryCache _memoryCache;
 
-        public SaleRepository()
+        public SaleRepository(IMemoryCache memoryCache)
         {
-            _sales = new List<Sale>(); 
+            _memoryCache = memoryCache;
         }
+
+        private List<Sale> GetSales() => _memoryCache.GetOrCreate("Sales", entry =>
+                                                  {
+                                                      entry.SlidingExpiration = TimeSpan.FromMinutes(15);
+                                                      return new List<Sale>();
+                                                  });
 
         public void AddSale(Sale sale)
         {
-            _sales.Add(sale);
+            var sales = GetSales();
+            sales.Add(sale);
+            _memoryCache.Set("Sales", sales);
         }
 
         public decimal GetTotalSalesVolume()
         {
-            return _sales.Sum(s => s.Price);
+            var sales = GetSales();
+            return sales.Sum(s => s.Price);
+        }
+
+        public IEnumerable<Sale> GetSalesByDistributionCenter(string centerName)
+        {
+            var sales = GetSales();
+            return sales.Where(s => s.DistributionCenterName == centerName);
         }
     }
 }

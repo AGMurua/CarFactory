@@ -35,3 +35,4 @@ D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\refint\CarFactory.dll
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.pdb
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.genruntimeconfig.cache
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\ref\CarFactory.dll
+D:\Work\CarFactory\CarFactory\CarFactory\bin\Debug\net8.0\AutoMapper.dll
