@@ -4,49 +4,5 @@
         <name>CarFactory</name>
     </assembly>
     <members>
-        <member name="M:SalesController.AddSale(CarFactory.DTOs.AddSaleDto)">
-            <summary>
-            Agrega una nueva venta
-            </summary>
-            <remarks>
-            Este endpoint agrega una nueva venta a la base de datos (mockeada)
-            </remarks>
-            <param name="saleDto">Los detalles de la venta a agregar</param>
-            <returns>La venta recien creada</returns>
-            <response code="201">Venta creada correctamente.</response>
-        </member>
-        <member name="M:SalesController.GetTotalSalesVolume">
-            <summary>
-            Obtiene el volumen total de ventas
-            </summary>
-            <remarks>
-            Este endpoint devuelve el volumen total de ventas en la base de datos (mockeada)
-            </remarks>
-            <returns>El volumen total de ventas.</returns>
-            <response code="200">Volumen total de ventas.</response>
-        </member>
-        <member name="M:SalesController.GetSalesByDistributionCenter(System.String)">
-            <summary>
-            Obtiene las ventas de un centro de distribucion
-            </summary>
-            <remarks>
-            Este endpoint devuelve todas las ventas de un centro de distribucion dado
-            </remarks>
-            <param name="centerName">El nombre del centro de distribucion</param>
-            <returns>Las ventas asociadas al centro de distribucion</returns>
-            <response code="200">Ventas del centro de distribucion</response>
-        </member>
-        <member name="M:SalesController.GetSalePercentageByModel">
-            <summary>
-            Obtiene el porcentaje de ventas de un modelo por centro
-            </summary>
-            <remarks>
-            Este endpoint devuelve el porcentaje de ventas para un tipo de coche y centro de distribucion
-            </remarks>
-            <param name="carType">El tipo de coche (CarTypeEnum)</param>
-            <param name="center">El nombre del centro de distribucion</param>
-            <returns>El porcentaje de ventas</returns>
-            <response code="200">Porcentaje de ventas por model</response>
-        </member>
     </members>
 </doc>

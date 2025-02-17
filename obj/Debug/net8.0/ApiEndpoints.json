@@ -73,22 +73,11 @@
   {
     "ContainingType": "SalesController",
     "Method": "GetSalePercentageByModel",
-    "RelativePath": "sales-percentage/{carType}/{center}",
+    "RelativePath": "sales-percentage",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "carType",
-        "Type": "",
-        "IsRequired": true
-      },
-      {
-        "Name": "center",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",

@@ -17,6 +17,8 @@ public class SalesController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [SwaggerOperation(Summary = "Agrega una nueva venta", Description = "Este endpoint agrega una nueva venta a la base de datos")]
+    //Se busca poder guardar una nueva venta. Para ello creamos un endpoint con la capacidad de recibir un tipo de coche y un centro de ventas
+    //Con esto podemos guardar la venta
     public IActionResult AddSale([FromBody] AddSaleDto saleDto)
     {
         if (saleDto == null)
@@ -40,6 +42,7 @@ public class SalesController : ControllerBase
     [HttpGet("total-sales-volume")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [SwaggerOperation(Summary = "Obtiene el volumen total de ventas", Description = "Este endpoint devuelve el volumen total de ventas en la base de datos")]
+    //Necesitamos poder obtener todas las ventas
     public IActionResult GetTotalSalesVolume()
     {
         var result = _saleService.GetTotalSalesVolume();
@@ -49,6 +52,7 @@ public class SalesController : ControllerBase
     [HttpGet("sales-by-center/{centerName}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [SwaggerOperation(Summary = "Obtiene las ventas de un centro de distribucion", Description = "Este endpoint devuelve todas las ventas de un centro de distribucion dado")]
+    //Necesitamos poder obtener las ventdas de un centro especifico
     public IActionResult GetSalesByDistributionCenter(string centerName)
     {
         var result = _saleService.GetSalesByDistributionCenter(centerName);
@@ -58,6 +62,7 @@ public class SalesController : ControllerBase
     [HttpGet("sales-percentage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [SwaggerOperation(Summary = "Obtiene el porcentaje de ventas por modelo", Description = "Este endpoint devuelve el porcentaje de ventas para cada centro de ventas")]
+    //Necesitamos pdoer obtener para los centros de distribucion que porcentajes de vehiculos se vendieron
     public IActionResult GetSalePercentageByModel()
     {
         var result = _saleService.GetSalesPercentageByModelPerCenter();
