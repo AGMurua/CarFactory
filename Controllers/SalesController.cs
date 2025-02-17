@@ -28,6 +28,20 @@ public class SalesController : ControllerBase
     [SwaggerOperation(Summary = "Agrega una nueva venta", Description = "Este endpoint agrega una nueva venta a la base de datos")]
     public IActionResult AddSale([FromBody] AddSaleDto saleDto)
     {
+        if (saleDto == null)
+        {
+            return BadRequest("El cuerpo de la solicitud no puede estar vacio.");
+        }
+
+        if (string.IsNullOrEmpty(saleDto.DistributionCenterName))
+        {
+            return BadRequest("El centro de distribucion es obligatorio.");
+        }
+
+        if (!Enum.IsDefined(typeof(CarTypeEnum), saleDto.CarType))
+        {
+            return BadRequest("El tipo de coche no es valido.");
+        }
         _saleService.InsertSale(saleDto);
         return CreatedAtAction(nameof(AddSale), new { saleDto }, saleDto);
     }

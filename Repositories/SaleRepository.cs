@@ -27,17 +27,9 @@ namespace CarFactory.Repositories
             _memoryCache.Set("Sales", sales);
         }
 
-        public decimal GetTotalSalesVolume()
-        {
-            var sales = GetSales();
-            return sales.Sum(s => s.Price);
-        }
+        public IEnumerable<Sale> GetTotalSalesVolume() => GetSales();
 
-        public IEnumerable<Sale> GetSalesByDistributionCenter(string centerName)
-        {
-            var sales = GetSales();
-            return sales.Where(s => s.DistributionCenterName == centerName);
-        }
+        public IEnumerable<Sale> GetSalesByDistributionCenter(string centerName) => GetSales().Where(s => s.DistributionCenterName == centerName);
 
         public decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter)
         {

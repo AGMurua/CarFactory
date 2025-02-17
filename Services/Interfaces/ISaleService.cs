@@ -7,7 +7,7 @@ namespace CarFactory.Services.Interfaces
     {
         decimal GetSalePercentageByModel(CarTypeEnum carType, string center);
         IEnumerable<SaleDto> GetSalesByDistributionCenter(string centerName);
-        object GetTotalSalesVolume();
+        IEnumerable<SaleDto> GetTotalSalesVolume();
         void InsertSale(AddSaleDto saleDto);
     }
 }

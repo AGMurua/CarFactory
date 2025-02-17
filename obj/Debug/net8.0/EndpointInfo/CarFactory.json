@@ -5,6 +5,28 @@
     "version": "1.0"
   },
   "paths": {
+    "/price/{carType}": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CarTypeEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/add": {
       "post": {
         "tags": [

@@ -27,6 +27,28 @@
     ]
   },
   {
+    "ContainingType": "CarFactory.Controllers.CarTypeController",
+    "Method": "GetSalePercentageByModel",
+    "RelativePath": "price/{carType}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carType",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SalesController",
     "Method": "GetSalesByDistributionCenter",
     "RelativePath": "sales-by-center/{centerName}",

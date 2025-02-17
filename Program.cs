@@ -19,12 +19,16 @@ builder.Services.AddSwaggerGen(c =>
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
-}); builder.Services.AddAutoMapper(typeof(SaleMap));
+}); 
+builder.Services.AddAutoMapper(typeof(SaleMap));
+builder.Services.AddAutoMapper(typeof(CarPriceMap));
 // Memory Cache
 builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<ISaleRepository, SaleRepository>();  
+builder.Services.AddScoped<ICarRepository, CarRepository>();  
 builder.Services.AddScoped<ISaleService, SaleService>();
+builder.Services.AddScoped<ICarTypeService, CarTypeService>();
 
 //Se agrega como singleton ya que no varia sus valores son estaticos
 builder.Services.AddSingleton<ICarPriceProvider, CarPriceProvider>(); 

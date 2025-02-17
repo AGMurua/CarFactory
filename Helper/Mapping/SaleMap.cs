@@ -9,6 +9,7 @@ namespace CarFactory.Helper.Mapping
         public SaleMap()
         {
             CreateMap<Sale, SaleDto>().ReverseMap();
+            CreateMap<SaleDto, Sale>().ReverseMap();
         }
     }
 }
