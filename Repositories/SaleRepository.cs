@@ -1,4 +1,5 @@
 ﻿using CarFactory.Domain;
+using CarFactory.Helper.Types;
 using CarFactory.Repositories.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -36,6 +37,13 @@ namespace CarFactory.Repositories
         {
             var sales = GetSales();
             return sales.Where(s => s.DistributionCenterName == centerName);
+        }
+
+        public decimal GetSalePercentageByModel(CarTypeEnum carType, string distributionCenter)
+        {
+            var totalSales = GetSalesByDistributionCenter(distributionCenter).Sum(s => s.Price);
+            var modelSales = GetSales().Where(s => s.CarType == carType && s.DistributionCenterName == distributionCenter).Sum(s => s.Price);
+            return totalSales > 0 ? (modelSales / totalSales) * 100 : 0;
         }
     }
 }

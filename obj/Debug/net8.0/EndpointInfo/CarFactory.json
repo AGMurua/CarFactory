@@ -69,6 +69,36 @@
           }
         }
       }
+    },
+    "/sales-percentage/{carType}/{center}": {
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CarTypeEnum"
+            }
+          },
+          {
+            "name": "center",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

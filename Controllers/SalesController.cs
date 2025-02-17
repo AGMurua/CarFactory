@@ -1,4 +1,5 @@
 ﻿using CarFactory.DTOs;
+using CarFactory.Helper.Types;
 using CarFactory.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,14 @@ namespace CarFactory.Controllers
         public IActionResult GetSalesByDistributionCenter(string centerName)
         {
             var result = _saleService.GetSalesByDistributionCenter(centerName);
+            return Ok(result);
+        }
+
+        [HttpGet("sales-percentage/{carType}/{center}")]
+        public IActionResult GetSalePercentageByModel(CarTypeEnum carType, string center)
+        {
+            var result = _saleService.GetSalePercentageByModel(carType, center);
+
             return Ok(result);
         }
     }
