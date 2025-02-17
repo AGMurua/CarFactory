@@ -1,11 +1,12 @@
-﻿namespace CarFactory.Helper.Types
+﻿using System.Runtime.Serialization;
+
+namespace CarFactory.Helper.Types
 {
     public enum CarTypeEnum
     {
-        Sedan,
-        Sport,
-        Suv,
-        OffRoad
-
+        Sedan = 1,
+        Sport = 2,
+        Suv = 3,
+        OffRoad = 4
     }
 }

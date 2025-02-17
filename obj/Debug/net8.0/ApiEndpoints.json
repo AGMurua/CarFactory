@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "CarFactory.Controllers.SalesController",
+    "ContainingType": "SalesController",
     "Method": "AddSale",
     "RelativePath": "add",
     "HttpMethod": "POST",
@@ -13,10 +13,21 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      }
+    ]
   },
   {
-    "ContainingType": "CarFactory.Controllers.SalesController",
+    "ContainingType": "SalesController",
     "Method": "GetSalesByDistributionCenter",
     "RelativePath": "sales-by-center/{centerName}",
     "HttpMethod": "GET",
@@ -29,10 +40,16 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "CarFactory.Controllers.SalesController",
+    "ContainingType": "SalesController",
     "Method": "GetSalePercentageByModel",
     "RelativePath": "sales-percentage/{carType}/{center}",
     "HttpMethod": "GET",
@@ -50,16 +67,28 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "CarFactory.Controllers.SalesController",
+    "ContainingType": "SalesController",
     "Method": "GetTotalSalesVolume",
     "RelativePath": "total-sales-volume",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

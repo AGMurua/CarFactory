@@ -10,7 +10,10 @@
         "tags": [
           "Sales"
         ],
+        "summary": "Agrega una nueva venta",
+        "description": "Este endpoint agrega una nueva venta a la base de datos (mockeada)",
         "requestBody": {
+          "description": "Los detalles de la venta a agregar",
           "content": {
             "application/json": {
               "schema": {
@@ -30,8 +33,11 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Venta creada correctamente."
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
@@ -41,9 +47,11 @@
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene el volumen total de ventas",
+        "description": "Este endpoint devuelve el volumen total de ventas en la base de datos (mockeada)",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Volumen total de ventas."
           }
         }
       }
@@ -53,10 +61,13 @@
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene las ventas de un centro de distribucion",
+        "description": "Este endpoint devuelve todas las ventas de un centro de distribucion dado",
         "parameters": [
           {
             "name": "centerName",
             "in": "path",
+            "description": "El nombre del centro de distribucion",
             "required": true,
             "schema": {
               "type": "string"
@@ -65,7 +76,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Ventas del centro de distribucion"
           }
         }
       }
@@ -75,10 +86,13 @@
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene el porcentaje de ventas de un modelo por centro",
+        "description": "Este endpoint devuelve el porcentaje de ventas para un tipo de coche y centro de distribucion",
         "parameters": [
           {
             "name": "carType",
             "in": "path",
+            "description": "El tipo de coche (CarTypeEnum)",
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/CarTypeEnum"
@@ -87,6 +101,7 @@
           {
             "name": "center",
             "in": "path",
+            "description": "El nombre del centro de distribucion",
             "required": true,
             "schema": {
               "type": "string"
@@ -95,7 +110,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Porcentaje de ventas por model"
           }
         }
       }
@@ -118,10 +133,10 @@
       },
       "CarTypeEnum": {
         "enum": [
-          0,
           1,
           2,
-          3
+          3,
+          4
         ],
         "type": "integer",
         "format": "int32"
