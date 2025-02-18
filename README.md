@@ -7,6 +7,15 @@ Esta API permite gestionar operaciones relacionadas con las ventas de autos, cen
 Desde el appsettings.json puede modificarse tanto los precios de los vehiculos como su impuesto de quererse. Por defecto solo el tipo "SPORT" tiene un impuesto del 7%.
 Tambien se puede modificar y agregar nuevos centros de distribucion y ventas. Por defecto solo hay cuatro.
 
+---
+
+### **Middleware para medir tiempos de ejecucion**
+- **Descripción**: Se solicito imprimir todos los tiempos de ejecucion de los metodos.
+- **Solucion**: Se creo un middleware que se ejecuta en cada llamada para imprimir en consola los tiempos de ejecucion. 
+- **Ubicacion**: Se encuentra en CarFactory\Middleware
+
+---
+
 ## Endpoints
 
 ### 1. **Agregar una nueva venta**
