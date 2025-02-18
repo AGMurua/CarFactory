@@ -153,4 +153,13 @@ Tambien se puede modificar y agregar nuevos centros de distribucion y ventas. Po
 
 ---
 
+## Test automaticos
+
+- Dentro de la solucion se encuentra una capa de test automaticos los mismos se pueden ejecutar desde visual studio.
+
+<p align="center">
+  <img src="https://i.imgur.com/7oVzCtw.png" alt="Test automaticos" width="300"/>
+</p>
+
+---
 Con esta guía podrás probar todas las funciones de la API de ventas de autos.
