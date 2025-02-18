@@ -10,6 +10,7 @@
         "tags": [
           "CarPrice"
         ],
+        "summary": "Obtiene todos los tipos de vehiculos con sus precios",
         "responses": {
           "200": {
             "description": "OK"
@@ -50,6 +51,26 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }

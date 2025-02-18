@@ -4,6 +4,12 @@
         <name>CarFactory</name>
     </assembly>
     <members>
+        <member name="M:CarFactory.Controllers.CarPriceController.GetAll">
+            <summary>
+            Obtiene todos los tipos de vehiculos con sus precios
+            </summary>
+            <returns>Obtiene todos los tipos de vehiculos con sus precios y impuestos si aplica </returns>
+        </member>
         <member name="T:CenterController">
             <summary>
             Controlador para gestionar las ventas de autos
