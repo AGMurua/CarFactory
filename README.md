@@ -76,12 +76,12 @@ El archivo appsettings.json permite configurar los precios de los vehiculos y su
     ```json
     {
       "Centro1": {
-        "Sedan": 60,
-        "SUV": 40
+        "Sedan": 20,
+        "SUV": 20
       },
       "Centro2": {
         "Sedan": 30,
-        "SUV": 70
+        "SUV": 30
       }
     }
     ```
@@ -161,4 +161,3 @@ El archivo appsettings.json permite configurar los precios de los vehiculos y su
 </p>
 
 ---
-Con esta guía podrás probar todas las funciones de la API de ventas de autos.
