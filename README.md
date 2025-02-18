@@ -4,8 +4,7 @@ Esta API permite gestionar operaciones relacionadas con las ventas de autos, cen
 
 ## Configuracion
 
-Desde el appsettings.json puede modificarse tanto los precios de los vehiculos como su impuesto de quererse. Por defecto solo el tipo "SPORT" tiene un impuesto del 7%.
-Tambien se puede modificar y agregar nuevos centros de distribucion y ventas. Por defecto solo hay cuatro.
+El archivo appsettings.json permite configurar los precios de los vehiculos y su impuesto. Por defecto, el tipo "SPORT" tiene un impuesto del 7%, pero se puede modificar. Ademas, es posible agregar o modificar centros de distribucion y ventas, con cuatro centros predeterminados.
 
 ---
 
