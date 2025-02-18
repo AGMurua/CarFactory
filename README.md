@@ -57,7 +57,7 @@ Tambien se puede modificar y agregar nuevos centros de distribucion y ventas. Po
 - **Endpoint**: `GET /api/sales/sales-by-center`
 - **Descripción**: Devuelve las ventas agrupadas por centro de distribución.
 - **Parámetros**:
-  - `centerName` (opcional): Nombre del centro para filtrar las ventas.
+  - `centerName` (opcional): Nombre del centro para filtrar las ventas. Si no se asina nigun centerName, devuelve todos los centros.
 - **Respuesta esperada**:
   - **200 OK**:
     ```json
