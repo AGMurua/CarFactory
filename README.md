@@ -14,6 +14,10 @@ Tambien se puede modificar y agregar nuevos centros de distribucion y ventas. Po
 - **Solucion**: Se creo un middleware que se ejecuta en cada llamada para imprimir en consola los tiempos de ejecucion. 
 - **Ubicacion**: Se encuentra en CarFactory\Middleware
 
+<p align="center">
+  <img src="https://i.imgur.com/hMvHijh.png" alt="Descripción de la imagen" width="300"/>
+</p>
+
 ---
 
 ## Endpoints
