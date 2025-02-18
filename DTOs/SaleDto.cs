@@ -7,8 +7,16 @@ namespace CarFactory.DTOs
         public int Id { get; set; }
         public CarTypeEnum CarType { get; set; }
         public string CarTypeName => CarType.ToString();
-        public string DistributionCenterName { get; set; }
+        public CenterDto Center { get; set; }
         public decimal Price { get; set; }
         public DateTime Date { get; set; }
+
+        public SaleDto(CarTypeEnum type, CenterDto center, decimal price)
+        {
+            CarType = type;
+            Center = center;
+            Price = price;
+            Date = DateTime.Now;
+        }
     }
 }

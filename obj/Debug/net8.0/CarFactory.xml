@@ -4,5 +4,53 @@
         <name>CarFactory</name>
     </assembly>
     <members>
+        <member name="T:CenterController">
+            <summary>
+            Controlador para gestionar las ventas de autos
+            </summary>
+        </member>
+        <member name="M:CenterController.GetSalesByDistributionCenter">
+            <summary>
+            Obtiene todos los centros
+            </summary>
+            <returns>Todos los centros de ventas</returns>
+        </member>
+        <member name="M:CenterController.GetCenterById(System.Int32)">
+            <summary>
+            Obtiene el centro por id
+            </summary>
+            <returns>Un centro solicitado</returns>
+        </member>
+        <member name="T:SalesController">
+            <summary>
+            Controlador para gestionar las ventas de autos
+            </summary>
+        </member>
+        <member name="M:SalesController.AddSale(CarFactory.DTOs.AddSaleDto)">
+            <summary>
+            Agrega una nueva venta
+            </summary>
+            <param name="saleDto">Datos de la venta</param>
+            <returns>Resultado de la operacion</returns>
+        </member>
+        <member name="M:SalesController.GetTotalSalesVolume">
+            <summary>
+            Obtiene el volumen total de ventas
+            </summary>
+            <returns>Volumen total de ventas</returns>
+        </member>
+        <member name="M:SalesController.GetSalesByDistributionCenter(System.String)">
+            <summary>
+            Obtiene el volumen de ventas por centro de distribucion
+            </summary>
+            <param name="centerName">Nombre del centro de distribucion (opcional)</param>
+            <returns>Ventas agrupadas por centro de distribucion</returns>
+        </member>
+        <member name="M:SalesController.GetSalePercentageByModel">
+            <summary>
+            Obtiene el porcentaje de ventas por modelo en cada centro
+            </summary>
+            <returns>Porcentaje de ventas agrupado por centro y modelo</returns>
+        </member>
     </members>
 </doc>

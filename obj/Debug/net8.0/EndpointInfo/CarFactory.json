@@ -5,18 +5,45 @@
     "version": "1.0"
   },
   "paths": {
-    "/price/{carType}": {
+    "/get-all": {
       "get": {
         "tags": [
-          "CarType"
+          "CarPrice"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/center/get-all": {
+      "get": {
+        "tags": [
+          "Center"
+        ],
+        "summary": "Obtiene todos los centros",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/center/{id}": {
+      "get": {
+        "tags": [
+          "Center"
+        ],
+        "summary": "Obtiene el centro por id",
         "parameters": [
           {
-            "name": "carType",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/CarTypeEnum"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -27,12 +54,14 @@
         }
       }
     },
-    "/add": {
+    "/api/sales/add": {
       "post": {
         "tags": [
           "Sales"
         ],
+        "summary": "Agrega una nueva venta",
         "requestBody": {
+          "description": "Datos de la venta",
           "content": {
             "application/json": {
               "schema": {
@@ -56,16 +85,34 @@
             "description": "Created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/total-sales-volume": {
+    "/api/sales/total-sales-volume": {
       "get": {
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene el volumen total de ventas",
         "responses": {
           "200": {
             "description": "OK"
@@ -73,15 +120,17 @@
         }
       }
     },
-    "/sales-by-center": {
+    "/api/sales/sales-by-center": {
       "get": {
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene el volumen de ventas por centro de distribucion",
         "parameters": [
           {
             "name": "centerName",
             "in": "query",
+            "description": "Nombre del centro de distribucion (opcional)",
             "schema": {
               "type": "string"
             }
@@ -94,11 +143,12 @@
         }
       }
     },
-    "/sales-percentage": {
+    "/api/sales/sales-percentage": {
       "get": {
         "tags": [
           "Sales"
         ],
+        "summary": "Obtiene el porcentaje de ventas por modelo en cada centro",
         "responses": {
           "200": {
             "description": "OK"
@@ -115,9 +165,9 @@
           "carType": {
             "$ref": "#/components/schemas/CarTypeEnum"
           },
-          "distributionCenterName": {
-            "type": "string",
-            "nullable": true
+          "centerId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -131,6 +181,33 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
       }
     }
   }

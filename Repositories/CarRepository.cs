@@ -1,14 +1,11 @@
 ﻿using CarFactory.Domain;
 using CarFactory.Helper.Types;
 using CarFactory.Repositories.Interfaces;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 
 namespace CarFactory.Repositories
 {
     public class CarRepository : ICarRepository
     {
-        private readonly IConfiguration _configuration;
         private readonly Dictionary<CarTypeEnum, CarPrice> _prices;
 
         public CarRepository(IConfiguration configuration)
@@ -26,11 +23,12 @@ namespace CarFactory.Repositories
                 });
         }
 
-        public CarPrice GetPrice(CarTypeEnum carType)
+        public IEnumerable<CarPrice> GetAll() => _prices.Values;
+        public CarPrice GetPriceByType(CarTypeEnum carType)
         {
             if (!_prices.TryGetValue(carType, out var carPrice))
             {
-                throw new KeyNotFoundException($"No se encontro el precio para el tipo de auto");
+                throw new ArgumentException($"No se encontro el precio para el tipo de auto");
             }
             return carPrice;
         }

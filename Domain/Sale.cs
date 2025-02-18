@@ -7,17 +7,9 @@ namespace CarFactory.Domain
     {
         public int Id { get; set; }
         public CarTypeEnum CarType { get; set; }
-        public string DistributionCenterName { get; set; }
+        public Center Center { get; set; }
         public decimal Price { get; set; }
         public DateTime Date { get; set; }
-
-
-        public Sale(CarTypeEnum type, string distributionCenterName, decimal price)
-        {
-            CarType = type;
-            DistributionCenterName = distributionCenterName;
-            Price = price;
-            Date = DateTime.Now;
-        }
+        
     }
 }

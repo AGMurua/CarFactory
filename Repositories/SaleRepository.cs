@@ -42,7 +42,7 @@ namespace CarFactory.Repositories
             if (totalCompanySales == 0) return new Dictionary<string, Dictionary<CarTypeEnum, decimal>>();
 
             return sales
-                .GroupBy(s => s.DistributionCenterName)
+                .GroupBy(s => s.Center.Name)
                 .ToDictionary(
                     centerGroup => centerGroup.Key,
                     centerGroup => centerGroup
@@ -58,11 +58,11 @@ namespace CarFactory.Repositories
         {
             if (!string.IsNullOrWhiteSpace(centerName))
             {
-                sales = sales.Where(s => s.DistributionCenterName == centerName);
+                sales = sales.Where(s => s.Center.Name == centerName);
             }
 
             return sales
-                .GroupBy(s => s.DistributionCenterName)
+                .GroupBy(s => s.Center.Name)
                 .ToDictionary(g => g.Key, g => g.Sum(s => s.Price));
         }
     }

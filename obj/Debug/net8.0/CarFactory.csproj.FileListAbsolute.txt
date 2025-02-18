@@ -35,7 +35,7 @@ D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.pdb
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.genruntimeconfig.cache
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\ref\CarFactory.dll
 D:\Work\CarFactory\CarFactory\CarFactory\bin\Debug\net8.0\AutoMapper.dll
-D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Work\CarFactory\CarFactory\CarFactory\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
 D:\Work\CarFactory\CarFactory\CarFactory\bin\Debug\net8.0\CarFactory.xml
 D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\CarFactory.xml
+D:\Work\CarFactory\CarFactory\CarFactory\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

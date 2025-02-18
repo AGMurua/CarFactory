@@ -9,18 +9,19 @@ using System.Collections.Generic;
 
 namespace CarFactory.Services
 {
-    public class CarTypeService : ICarTypeService
+    public class CarService : ICarService
     {
         private readonly ICarRepository _carRepository;
         private readonly IMapper _mapper;
          
-        public CarTypeService(ICarRepository carRepository, IMapper mapper)
+        public CarService(ICarRepository carRepository, IMapper mapper)
         {
             _carRepository = carRepository;
             _mapper = mapper;
         }
 
-        public CarPriceDto GetPrice(CarTypeEnum carType) => _mapper.Map<CarPriceDto>(_carRepository.GetPrice(carType));
+        public CarPriceDto GetPriceByType(CarTypeEnum carType) => _mapper.Map<CarPriceDto>(_carRepository.GetPriceByType(carType));
+        public IEnumerable<CarPriceDto> GetAllCarPrice() => _mapper.Map<IEnumerable<CarPriceDto>>(_carRepository.GetAll());
         
     }
 }

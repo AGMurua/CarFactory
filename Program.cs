@@ -22,14 +22,17 @@ builder.Services.AddSwaggerGen(c =>
 }); 
 builder.Services.AddAutoMapper(typeof(SaleMap));
 builder.Services.AddAutoMapper(typeof(CarPriceMap));
+builder.Services.AddAutoMapper(typeof(CenterMap));
 // Memory Cache
 builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<ISaleRepository, SaleRepository>();  
 builder.Services.AddScoped<ICarRepository, CarRepository>();  
+builder.Services.AddScoped<ICenterRepository, CenterRepository>();  
 
 builder.Services.AddScoped<ISaleService, SaleService>();
-builder.Services.AddScoped<ICarTypeService, CarTypeService>();
+builder.Services.AddScoped<ICenterService, CenterService>();
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
 

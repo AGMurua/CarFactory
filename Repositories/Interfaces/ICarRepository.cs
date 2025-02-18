@@ -5,6 +5,7 @@ namespace CarFactory.Repositories.Interfaces
 {
     public interface ICarRepository
     {
-        CarPrice GetPrice(CarTypeEnum carType);
+        IEnumerable<CarPrice> GetAll();
+        CarPrice GetPriceByType(CarTypeEnum carType);
     }
 }
